@@ -1,39 +1,48 @@
 package com.serviceenabled.dropwizardrequesttracker;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class RequestTrackerConfiguration {
 
-	public RequestTrackerConfiguration() {}
+    private String headerName = "X-Request-Tracker";
+    private String mdcKey = "Request-Tracker";
+    private Boolean addResponseHeader = false;
 
-	public RequestTrackerConfiguration(String headerName, String mdcKey) {
-		setHeaderName(headerName);
-		setMdcKey(mdcKey);
-	}
+    public RequestTrackerConfiguration() {
+    }
 
-	private String headerName = "X-Request-Tracker";
-	private String mdcKey = "Request-Tracker";
-	private Boolean addResponseHeader = false;
+    public RequestTrackerConfiguration(String headerName, String mdcKey) {
+        setHeaderName(headerName);
+        setMdcKey(mdcKey);
+    }
 
-	public Boolean getAddResponseHeader() {
-		return this.addResponseHeader;
-	}
+    @JsonProperty
+    public Boolean getAddResponseHeader() {
+        return this.addResponseHeader;
+    }
 
-	public void setAddResponseHeader(Boolean val) {
-		this.addResponseHeader = val;
-	}
+    @JsonProperty
+    public void setAddResponseHeader(Boolean val) {
+        this.addResponseHeader = val;
+    }
 
-	public String getHeaderName() {
-		return headerName;
-	}
+    @JsonProperty
+    public String getHeaderName() {
+        return headerName;
+    }
 
-	public void setHeaderName(String headerName) {
-		this.headerName = headerName;
-	}
+    @JsonProperty
+    public void setHeaderName(String headerName) {
+        this.headerName = headerName;
+    }
 
-	public String getMdcKey() {
-		return mdcKey;
-	}
+    @JsonProperty
+    public String getMdcKey() {
+        return mdcKey;
+    }
 
-	public void setMdcKey(String mdcKey) {
-		this.mdcKey = mdcKey;
-	}
+    @JsonProperty
+    public void setMdcKey(String mdcKey) {
+        this.mdcKey = mdcKey;
+    }
 }
